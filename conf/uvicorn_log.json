@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "default": {
+      "()": "uvicorn.logging.DefaultFormatter",
+      "fmt": "%(levelprefix)s %(asctime)s %(message)s",
+      "datefmt": "%Y-%m-%d %H:%M:%S"
+    }
+  },
+  "handlers": {
+    "default": {
+      "level": "DEBUG",
+      "class": "logging.FileHandler",
+      "formatter": "default",
+      "filename": "log/uvicorn.log"
+    }
+  },
+  "loggers": {
+    "uvicorn": {
+      "handlers": ["default"],
+      "level": "DEBUG",
+      "propagate": false
+    },
+    "uvicorn.error": {
+      "level": "DEBUG"
+    },
+    "uvicorn.access": {
+      "level": "DEBUG"
+    }
+  }
+}
